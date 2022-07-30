@@ -1,0 +1,12 @@
+<p *ngIf="loading">Loading...</p>
+<ng-container *ngIf="list && !loading">
+	<h2>{{state}}</h2>
+	<ul class="tabs">
+		<li *ngFor="let item of list.items" [ngClass]="item.show && 'active'" (click)="setActiveUser(item)">{{item.name}}</li>
+	</ul>
+  <ul class="tabs-body">
+    <li *ngFor="let item of list.items" [ngClass]="item.show && 'active'">
+      <item [text]="item.text"></item>
+    </li>
+  </ul>
+</ng-container>
